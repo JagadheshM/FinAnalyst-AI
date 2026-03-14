@@ -1,0 +1,35 @@
+# Core AI Framework
+langchain>=0.2.0
+langchain-google-genai>=1.0.0
+langgraph>=0.1.0
+
+# Web & API
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+httpx>=0.27.0
+requests>=2.32.0
+
+# Scheduling
+apscheduler>=3.10.4
+
+# Financial Data
+yfinance>=0.2.40
+pandas>=2.2.0
+
+# News Scraping
+feedparser>=6.0.11
+beautifulsoup4>=4.12.0
+
+# Telegram Bot
+python-telegram-bot>=21.0.0
+
+# Environment & Config
+python-dotenv>=1.0.1
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+
+# Reliability
+tenacity>=8.3.0
+
+# Utilities
+pytz>=2024.1
