@@ -49,16 +49,14 @@ def start_scheduler():
         return int(h), int(m)
         
     m_hour, m_minute = parse_time(config.morning_brief_time)
-    md_hour, md_minute = parse_time(config.midday_update_time)
     mw_hour, mw_minute = parse_time(config.market_wrap_time)
     
     # Add jobs
     scheduler.add_job(run_market_briefing, 'cron', day_of_week='mon-fri', hour=m_hour, minute=m_minute, id="morning_brief")
-    scheduler.add_job(run_market_briefing, 'cron', day_of_week='mon-fri', hour=md_hour, minute=md_minute, id="midday_update")
     scheduler.add_job(run_market_briefing, 'cron', day_of_week='mon-fri', hour=mw_hour, minute=mw_minute, id="market_wrap")
     
     scheduler.start()
-    print(f"📅 Scheduler started. Next runs scheduled for {config.morning_brief_time}, {config.midday_update_time}, and {config.market_wrap_time} (IST) on weekdays.")
+    print(f"📅 Scheduler started. Next runs scheduled for {config.morning_brief_time} and {config.market_wrap_time} (IST) on weekdays.")
     return scheduler
 
 if __name__ == "__main__":

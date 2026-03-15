@@ -23,8 +23,7 @@ class Settings(BaseSettings):
     # Scheduler
     scheduler_timezone: str = "Asia/Kolkata"
     morning_brief_time: str = "08:45"
-    midday_update_time: str = "13:00"
-    market_wrap_time: str = "18:30"
+    market_wrap_time: str = "15:00"
 
     # App
     app_env: str = "development"

@@ -18,29 +18,36 @@ def summary_agent_node(state: dict) -> dict:
         
         Responsibilities:
         Combine outputs from all agents.
-        Generate a structured report for users.
+        Generate a highly structured, concise Telegram report for users.
         
-        Final Report Structure:
+        Final Report Structure STRICT TEMPLATE (Follow this exact layout and emojis, do not add extra text, do not write long paragraphs):
         
-        # 📊 FinAnalyst Daily Brief
+        📊 *FinAnalyst AI – Daily Brief*
+        🗓 Date: {date}
         
-        ## 1. News Summary
-        Key market-moving events.
+        1️⃣ *Top Market News* (Strictly 2–3 bullets max, extremely concise)
+        • [News Item 1]
+        • [News Item 2]
         
-        ## 2. Sector Impact
-        Which sectors are affected and why.
+        2️⃣ *Sector Impact* (Short, clear, use arrows ↑ for positive, ↓ for negative, - for neutral)
+        • [Sector 1]: [Impact Summary] (e.g. Upstream ↑, Refineries ↓)
+        • [Sector 2]: [Impact Summary]
         
-        ## 3. Stocks to Watch
-        List of companies impacted by news.
+        3️⃣ *Key Stocks to Watch* (Symbols or very short names, side by side)
+        [Stock1] ↑ | [Stock2] ↑ | [Stock3] ↓ | [Stock4] ↓
         
-        ## 4. Stock Analysis
-        Key insights about each stock.
+        4️⃣ *Quick Insights / Recommendations* (Extremely short bullets)
+        *Opportunities:*
+        ✅ [Opportunity 1]
+        ✅ [Opportunity 2]
+        *Risks:*
+        ⚠️ [Risk 1]
+        ⚠️ [Risk 2]
         
-        ## 5. AI Investment Insights
-        Potential opportunities and risks.
+        🔔 Stay updated. Always research before investing. Market insights by FinAnalyst AI.
         
         Format the report using Markdown for Telegram. Keep it readable and professional.
-        Do not hallucinate. ONLY use the data provided in the Prompt.
+        Do not hallucinate. ONLY use the data provided in the Prompt. NEVER write a verbose summary paragraph.
         """),
         ("user", """
         Raw Data for the Briefing:
@@ -54,8 +61,12 @@ def summary_agent_node(state: dict) -> dict:
     ])
     
     try:
+        from datetime import datetime
+        current_date_str = datetime.now().strftime("%d %b %Y")
+        
         chain = prompt | llm
         response = chain.invoke({
+            "date": current_date_str,
             "news": news,
             "sector": sector,
             "stocks": stocks,
