@@ -8,7 +8,7 @@ An **AI-powered multi-agent market intelligence system** that automatically coll
 - 🏭 **Sector Analysis** – Parallel agents for Technology, Banking, Energy & Automobile
 - 📊 **Market Data** – Live prices, trends, volumes via Yahoo Finance & CoinGecko
 - 🤖 **Stock Analysis** – Fundamental, technical, and macro analysis
-- 📢 **Telegram Delivery** – Auto-posts briefings at 8:45 AM, 1:00 PM & 6:30 PM IST
+- 📢 **Telegram Delivery** – Auto-posts briefings at 8:45 AM & 3:00 PM IST
 
 ## Tech Stack
 | Layer | Technology |
